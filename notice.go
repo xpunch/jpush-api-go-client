@@ -1,5 +1,6 @@
 package jpushclient
 
+// Notice https://docs.jiguang.cn//jpush/server/push/rest_api_v3_push/#notification
 type Notice struct {
 	Alert    string          `json:"alert,omitempty"`
 	Android  *AndroidNotice  `json:"android,omitempty"`
@@ -8,10 +9,28 @@ type Notice struct {
 }
 
 type AndroidNotice struct {
-	Alert     string                 `json:"alert"`
-	Title     string                 `json:"title,omitempty"`
-	BuilderId int                    `json:"builder_id,omitempty"`
-	Extras    map[string]interface{} `json:"extras,omitempty"`
+	Alert             string                 `json:"alert"`
+	Title             string                 `json:"title,omitempty"`
+	BuilderID         int                    `json:"builder_id,omitempty"`
+	ChannelID         int                    `json:"channel_id,omitempty"`
+	Priority          int                    `json:"priority,omitempty"`
+	Category          string                 `json:"category,omitempty"`
+	Style             string                 `json:"style,omitempty"`
+	AlertType         int                    `json:"alert_type,omitempty"`
+	BigText           string                 `json:"big_text,omitempty"`
+	Inbox             interface{}            `json:"inbox,omitempty"`
+	BigPicPath        string                 `json:"big_pic_path,omitempty"`
+	LargeIcon         string                 `json:"large_icon,omitempty"`
+	Intent            interface{}            `json:"intent,omitempty"`
+	URIActivity       string                 `json:"uri_activity,omitempty"`
+	URIAction         string                 `json:"uri_action,omitempty"`
+	BadgeAddNum       int                    `json:"badge_add_num,omitempty"`
+	BadgeClass        string                 `json:"badge_class,omitempty"`
+	Sound             string                 `json:"sound,omitempty"`
+	ShowBeginTime     string                 `json:"show_begin_time,omitempty"`
+	ShowEndTime       string                 `json:"show_end_time,omitempty"`
+	DisplayForeground string                 `json:"display_foreground,omitempty"`
+	Extras            map[string]interface{} `json:"extras,omitempty"`
 }
 
 type IOSNotice struct {
@@ -22,6 +41,7 @@ type IOSNotice struct {
 	MutableContent   bool                   `json:"mutable-content,omitempty"`
 	Category         string                 `json:"category,omitempty"`
 	Extras           map[string]interface{} `json:"extras,omitempty"`
+	ThreadID         string                 `json:"thread-id,omitempty"`
 }
 
 type WinPhoneNotice struct {
