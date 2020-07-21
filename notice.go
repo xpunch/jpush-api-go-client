@@ -36,7 +36,7 @@ type AndroidNotice struct {
 type IOSNotice struct {
 	Alert            interface{}            `json:"alert"`
 	Sound            string                 `json:"sound,omitempty"`
-	Badge            string                 `json:"badge,omitempty"`
+	Badge            interface{}            `json:"badge,omitempty"`
 	ContentAvailable bool                   `json:"content-available,omitempty"`
 	MutableContent   bool                   `json:"mutable-content,omitempty"`
 	Category         string                 `json:"category,omitempty"`
@@ -60,6 +60,9 @@ func (this *Notice) SetAndroidNotice(n *AndroidNotice) {
 }
 
 func (this *Notice) SetIOSNotice(n *IOSNotice) {
+	if n != nil && n.Badge == nil {
+		n.Badge = "+1"
+	}
 	this.IOS = n
 }
 
