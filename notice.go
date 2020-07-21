@@ -12,14 +12,15 @@ type AndroidNotice struct {
 	Alert             string                 `json:"alert"`
 	Title             string                 `json:"title,omitempty"`
 	BuilderID         int                    `json:"builder_id,omitempty"`
-	ChannelID         int                    `json:"channel_id,omitempty"`
+	ChannelID         string                 `json:"channel_id,omitempty"`
 	Priority          int                    `json:"priority,omitempty"`
 	Category          string                 `json:"category,omitempty"`
-	Style             string                 `json:"style,omitempty"`
+	Style             int                    `json:"style,omitempty"`
 	AlertType         int                    `json:"alert_type,omitempty"`
 	BigText           string                 `json:"big_text,omitempty"`
 	Inbox             interface{}            `json:"inbox,omitempty"`
 	BigPicPath        string                 `json:"big_pic_path,omitempty"`
+	Extras            map[string]interface{} `json:"extras,omitempty"`
 	LargeIcon         string                 `json:"large_icon,omitempty"`
 	Intent            interface{}            `json:"intent,omitempty"`
 	URIActivity       string                 `json:"uri_activity,omitempty"`
@@ -30,7 +31,6 @@ type AndroidNotice struct {
 	ShowBeginTime     string                 `json:"show_begin_time,omitempty"`
 	ShowEndTime       string                 `json:"show_end_time,omitempty"`
 	DisplayForeground string                 `json:"display_foreground,omitempty"`
-	Extras            map[string]interface{} `json:"extras,omitempty"`
 }
 
 type IOSNotice struct {
